@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BankingCreditSystem.Persistence.Repositories;
+using BankingCreditSystem.Application.Services.Repositories;
 
 public static class PersistenceServiceRegistration
 {
@@ -16,8 +17,8 @@ public static class PersistenceServiceRegistration
         // Repositories 
         services.AddScoped<IIndividualCustomerRepository, IndividualCustomerRepository>();
         services.AddScoped<ICorporateCustomerRepository, CorporateCustomerRepository>();
-        //services.AddScoped<ICreditTypeRepository, CreditTypeRepository>();
-        //services.AddScoped<ICreditApplicationRepository, CreditApplicationRepository>();
+        services.AddScoped<ICreditTypeRepository, CreditTypeRepository>();
+        services.AddScoped<ICreditApplicationRepository, CreditApplicationRepository>();
 
         return services;
     }
